@@ -6,9 +6,15 @@
 
 <p>
     {{ my_text }}, {{ my_number }}
-    <ul>
+</p><ul>
     {% for item in my_list %}
-        <li>{{ forloop.counter }} -> {{ item }}</li>
+        {% if item == 2 %}
+            <li>{{ forloop.counter }} -> {{ item|add:20 }}</li>
+        {% elif item == 'text' %}
+            <li>Invalid item</li>
+        {% else %}
+            <li>{{ forloop.counter }} -> {{ item }}</li>
+        {% endif %}
     {% endfor %}
     </ul>
 </p>

@@ -16,6 +16,6 @@ def contact_view(request, *args, **kwargs):
     my_context = {
         "my_text": "This is me!",
         "my_number": 6549873217,
-        "my_list": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        "my_list": [1, 2, 3, 4, 5, 6, 7, 8, "text"]
     }
     return render(request, "contact.html", my_context)
