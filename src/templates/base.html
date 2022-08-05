@@ -5,7 +5,8 @@
     <title>Try Django</title>
 </head>
 <body>
-    <h1>{{ request.user }} accessed the page!</h1>
+    {% include 'navbar.html' %}
+
     {% block content %}
       replace me
     {% endblock %}
