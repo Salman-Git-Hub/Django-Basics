@@ -5,6 +5,7 @@
     <title>Try Django</title>
 </head>
 <body>
+    <h1>{{ request.user }} accessed the page!</h1>
     {% block content %}
       replace me
     {% endblock %}
