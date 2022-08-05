@@ -13,4 +13,4 @@ def product_detail_view(request):
     ctx = {
         "object": obj
     }
-    return render(request, 'product/detail.html', ctx)
+    return render(request, 'products/product_detail.html', ctx)
