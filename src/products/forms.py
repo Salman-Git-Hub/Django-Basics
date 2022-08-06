@@ -13,6 +13,21 @@ class ProductForm(forms.ModelForm):
 
 
 class RawProductForm(forms.Form):
-    title = forms.CharField()
-    description = forms.CharField()
-    price = forms.DecimalField()
+    title = forms.CharField(
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Your title"
+            }
+        )
+    )
+    description = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                "class": "class-name",
+                "rows": 20,
+                "columns": 120
+            }
+        )
+    )
+    price = forms.DecimalField(initial=0.00)
