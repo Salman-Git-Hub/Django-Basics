@@ -6,6 +6,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
+from .forms import ArticleForm
 from .models import Article
 
 
@@ -28,3 +29,26 @@ class ArticleDetailView(DetailView):
         id_ = self.kwargs.get("id")  # get the url parameter
         return get_object_or_404(Article, id=id_)
 
+
+class ArticleCreateView(CreateView):
+    template_name = 'articles/article_create.html'
+    form_class = ArticleForm
+    queryset = Article.objects.all()
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super().form_valid(form)
+
+
+class ArticleUpdateView(UpdateView):
+    template_name = 'articles/article_create.html'
+    form_class = ArticleForm
+    queryset = Article.objects.all()
+
+    def get_object(self, queryset=None):
+        id_ = self.kwargs.get("id")  # get the url parameter
+        return get_object_or_404(Article, id=id_)
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super().form_valid(form)
